@@ -1,0 +1,20 @@
+{
+    "Class0": {
+        "Prerequisites": []
+    },
+    "Class1": {
+        "Prerequisites": []
+    },
+    "Class2": {
+        "Prerequisites": ["Class0"]
+    },
+    "Class3": {
+        "Prerequisites": ["Class0", "Class1"]
+    },
+    "Class4": {
+        "Prerequisites": ["Class3"]
+    },
+    "Class5": {
+        "Prerequisites": ["Class4", "Class2"]
+    }
+}

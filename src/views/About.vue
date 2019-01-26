@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="graph">
+    <h1>Use this site to view all of your prerequisites!</h1>
   </div>
 </template>
