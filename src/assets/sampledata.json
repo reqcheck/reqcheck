@@ -16,5 +16,14 @@
     },
     "Class5": {
         "Prerequisites": ["Class4", "Class2"]
+    },
+    "Class6": {
+        "Prerequisites": ["Class0", "Class1"]
+    },
+    "Class7": {
+        "Prerequisites": ["Class6"]
+    },
+    "Class8": {
+        "Prerequisites": []
     }
 }

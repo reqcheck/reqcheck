@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-      Graph goes here or whatever.
     <GraphInset courses="Yee"></GraphInset>
   </div>
 </template>
