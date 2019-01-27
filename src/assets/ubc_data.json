@@ -1,38 +1,4 @@
-{
-    "UBC_ECE 100": {
-        "prereqs": [[]],
-        "name": "Circuits I"
-    },
-    "UBC_ECE 101": {
-        "prereqs": [[]],
-        "name": "Circuits II"
-    },
-    "UBC_ECE 200": {
-        "prereqs": [["UBC_ECE 100"]],
-        "name": "Advanced Circuits"
-    },
-    "UBC_ECE 210": {
-        "prereqs": [["UBC_ECE 100", "UBC_ECE 101"]],
-        "name": "Electormagnetism I"
-    },
-    "UBC_ECE 300": {
-        "prereqs": [["UBC_ECE 200"]],
-        "name": "Very Advanced Circuits I"
-    },
-    "UBC_ECE 301": {
-        "prereqs": [["UBC_ECE 300", "UBC_ECE 200"]],
-        "name": "Very Advanced Circuits II"
-    },
-    "UBC_ECE 299": {
-        "prereqs": [["UBC_ECE 100", "UBC_ECE 101"]],
-        "name": "Design I"
-    },
-    "UBC_ENGR 400": {
-        "prereqs": [["UBC_ECE 299"]],
-        "name": "Engineering Ethics"
-    },
-    "UBC_CSC 100": {
-        "prereqs": [[]],
-        "name": "Programming in Oook"
-    }
+{"CPSC 100": {"units": "Units: 3", "hours": "3-1-0", "subject": "CPSC 100", "name": "Computational Thinking", "prereqs": null, "coreqs": null, "url": "https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=100"},
+"CPSC 103": {"units": "Units: 3", "hours": "3-1-0", "subject": "CPSC 103", "name": "Introduction to Systematic Program Design", "prereqs": null, "coreqs": null, "url": "https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=103"},
+"CPSC 107": {}
 }
