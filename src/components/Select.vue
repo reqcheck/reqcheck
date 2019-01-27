@@ -2,6 +2,7 @@
   <div id="app">
     <h5>Select your classes below:</h5>
         <vue-select ref="select" multiple :options="options" v-model="selected"></vue-select>
+    <button class="btn btn-default" @click="deselect">Reset</button>
     <button class="btn btn-default" @click="selectAll">Select All</button>
     <button class="btn btn-default" @click="makeGraph">Go!</button>
   </div>
@@ -18,7 +19,7 @@
     name: 'Select',
     data () {
         return {
-            selected: this.selectedCourses,
+            selected: [],
         }
     },
     computed: {
@@ -43,12 +44,20 @@
       // bug caused by onAfterSelect
             select.open = false
         },
+        deselect() {
+            this.selected = []
+        },
         ...mapActions( {
             selectCourses: 'selectCourses'
         } ),
         makeGraph(){
-            this.selectCourses(this.selected)
-            this.$router.push('graph')
+            console.log(this.selected.length)
+            if(this.selected.length === 0){
+                alert("Please select at least one course!")
+            } else {
+                this.selectCourses(this.selected)
+                this.$router.push('graph')
+            }
         },
     },
     components: {
