@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>ReckCheck.tech</h1>
+    <h5>Select your classes below:</h5>
         <vue-select ref="select" multiple :options="options" v-model="selected"></vue-select>
     <button class="btn btn-default" @click="selectAll">Select All</button>
     <button class="btn btn-default" @click="makeGraph">Go!</button>
@@ -12,12 +12,13 @@
   import vueSelect from 'vue-select'
   import * as data from '@/assets/sampledata.json'
   import { mapActions } from 'vuex'
+  import { mapGetters } from 'vuex'
  
   export default {
     name: 'Select',
     data () {
         return {
-            selected: [],
+            selected: this.selectedCourses,
         }
     },
     computed: {
@@ -27,7 +28,10 @@
         options.push(course)
         }
         return options
-        }
+        },
+        ...mapGetters([
+            'selectedCourses'
+        ])
     }, 
     methods: {
         selectAll() {

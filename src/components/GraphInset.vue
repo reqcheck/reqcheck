@@ -100,9 +100,8 @@ export default {
         this.container = document.getElementById('mynetwork');
         this.network = new vis.Network(this.container, this.graph_data, this.options);
         this.net
-        this.network.on("showPopup", function (params) {
-            console.log(params)
-            document.getElementById("details").innerHTML = params + ": " + data.default[params].Name
+        this.network.on("hoverNode", function (params) {
+            document.getElementById("details").innerHTML = params.node + ": " + data.default[params.node].Name
         });
     }
 }
