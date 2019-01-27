@@ -1,18 +1,19 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/req.png">
-    <HelloWorld msg="ReqCheck.tech"/>
+    <Select/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
+import Select from '@/components/Select.vue'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    Select
   }
 }
 </script>
