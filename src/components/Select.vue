@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <div id="SchoolSelect">
-        <p>First, select your school:</p>
-        <multiselect ref="select" v-model="school" :options="schoolOptions" :multiple="false" :close-on-select="true" :clear-on-select="false" :preserve-search="false" placeholder="Pick your school" label="name" track-by="name">
+        <br>
+        <br>
+        <br>       
+        <multiselect ref="select" v-model="school" :options="schoolOptions" :multiple="false" :close-on-select="true" :clear-on-select="false" :preserve-search="false" placeholder="Pick your school" label="name" openDirection="top" track-by="name">
             <template slot="Select" slot-scope="{ options, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} options selected</span></template>
-        </multiselect> 
+        </multiselect>
+        <p>First, select your school:</p> 
     </div>
-    <div id="CourseSelect" v-if="school != ''">        
-        <p>Great! Now select your classes below:</p>
-        <multiselect ref="select" v-model="selected" :options="options" :multiple="true" :close-on-select="false" :clear-on-select="false" :preserve-search="false" placeholder="Select a Course" label="name" track-by="name">
+    <div id="CourseSelect" v-if="school != ''">  
+        <multiselect ref="select" v-model="selected" :options="options" :multiple="true" :close-on-select="false" :clear-on-select="false" :preserve-search="false" placeholder="Select a Course" label="name" track-by="name" openDirection="top" :max-height="150">
             <template slot="Select" slot-scope="{ options, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} options selected</span></template>
-        </multiselect> 
+        </multiselect>
+        <p>Great! Now select your classes below:</p> 
     </div>
     <div id="buttons" v-if="selected.length != 0">
     <p>Nice! Now hit go to check out your prerequesite graph!</p>
