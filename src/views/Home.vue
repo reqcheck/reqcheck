@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/req.png" style="height:200px; width=100px">
+    <img alt="ReqCheck logo" src="../assets/req2.png" style="height:200px; width=100px">
     <Select/>
   </div>
 </template>
