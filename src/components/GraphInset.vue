@@ -68,9 +68,20 @@ export default {
                         id: course,
                         label:course,
                         level: course.match(/\d/),
-                        title: "YEET"
                         })
                     for (var req in data.default[course].Prerequisites){
+                        if (this.graph_nodes.get(data.default[course].Prerequisites[req]) == null) {
+                            console.log(data.default[course].Prerequisites[req])
+                            this.graph_nodes.add({
+                                color: {
+                                    background: '#e88d8d',
+                                    border: '#e84a4a'
+                                },
+                                id: data.default[course].Prerequisites[req],
+                                label: data.default[course].Prerequisites[req],
+                                level: data.default[course].Prerequisites[req].match(/\d/),
+                        })
+                        }
                         this.graph_edges.add({
                             from: data.default[course].Prerequisites[req],
                             to: course
@@ -88,7 +99,9 @@ export default {
     mounted() {
         this.container = document.getElementById('mynetwork');
         this.network = new vis.Network(this.container, this.graph_data, this.options);
+        this.net
         this.network.on("showPopup", function (params) {
+            console.log(params)
             document.getElementById("details").innerHTML = params + ": " + data.default[params].Name
         });
     }

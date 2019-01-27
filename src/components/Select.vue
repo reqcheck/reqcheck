@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Vue Select - Select All</h1>
+    <h1>ReckCheck.tech</h1>
         <vue-select ref="select" multiple :options="options" v-model="selected"></vue-select>
     <button class="btn btn-default" @click="selectAll">Select All</button>
     <button class="btn btn-default" @click="makeGraph">Go!</button>
