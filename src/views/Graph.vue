@@ -1,17 +1,30 @@
 <template>
   <div class="home">
-    <GraphInset v-bind:courses="['ECE 100', 'ECE 101', 'ECE 200', 'ECE 210', 'ECE 300', 'ECE 301', 'ECE 299', 'ENGR 400', 'CSC 100']"></GraphInset>
+    <GraphInset v-bind:courses=selectedCourses></GraphInset>
   </div>
 </template>
 
 <script>
+
+import { mapGetters } from 'vuex'
+
 // @ is an alias to /src
 import GraphInset from '@/components/GraphInset.vue'
 
 export default {
+  data () {
+      return {
+          courses: this.$router.params
+      }
+  },
   name: 'graph',
   components: {
     GraphInset
+  },
+  computed: {
+      ...mapGetters([
+          'selectedCourses'
+      ])
   }
 }
 </script>

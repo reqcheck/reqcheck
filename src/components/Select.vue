@@ -3,21 +3,21 @@
     <h1>Vue Select - Select All</h1>
         <vue-select ref="select" multiple :options="options" v-model="selected"></vue-select>
     <button class="btn btn-default" @click="selectAll">Select All</button>
+    <button class="btn btn-default" @click="makeGraph">Go!</button>
   </div>
 </template>
 
 <script>
+
   import vueSelect from 'vue-select'
   import * as data from '@/assets/sampledata.json'
-
-
+  import { mapActions } from 'vuex'
  
   export default {
     name: 'Select',
     data () {
         return {
             selected: [],
-            //options: ["foo", "bar", "baz"]
         }
     },
     computed: {
@@ -38,11 +38,18 @@
       
       // bug caused by onAfterSelect
             select.open = false
-        }
+        },
+        ...mapActions( {
+            selectCourses: 'selectCourses'
+        } ),
+        makeGraph(){
+            this.selectCourses(this.selected)
+            this.$router.push('graph')
+        },
     },
     components: {
         vueSelect
-    }
+    },
   }
 </script>
 

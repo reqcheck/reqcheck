@@ -12,11 +12,8 @@
     "vis": "^4.21.0",
     "vue": "^2.5.21",
     "vue-router": "^3.0.1",
-<<<<<<< HEAD
-    "vue-select": "^2.5.1"
-=======
-    "vue2vis": "0.0.16"
->>>>>>> made the graphs good
+    "vue-select": "^2.5.1",
+    "vuex": "^3.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.3.0",
