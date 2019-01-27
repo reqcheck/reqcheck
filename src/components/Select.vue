@@ -11,8 +11,18 @@
     </div>
     <div id="buttons" v-if="selected.length != 0">
     <p>Nice! Now hit go to check out your prerequesite graph!</p>
-    <button class="btn btn-default" @click="deselect">Reset</button>
-    <button class="btn btn-default" @click="makeGraph">Go!</button>
+    <sui-button class="ui fade animated button" @click="deselect">
+      <sui-button-content visible>Reset</sui-button-content>
+      <sui-button-content hidden>
+        <sui-icon name="undo icon"/>
+      </sui-button-content>
+    </sui-button>
+    <sui-button class="ui fade animated button" @click="makeGraph">
+      <sui-button-content visible>Go!</sui-button-content>
+      <sui-button-content hidden>
+        <sui-icon name="checkmark icon" />
+      </sui-button-content>
+    </sui-button>
     </div>
   </div>
 </template>
