@@ -2,12 +2,15 @@
   <div id="app">
     <div id="SchoolSelect">
         <p>First, select your school:</p>
-        <vue-select ref="select" :options="schoolOptions" v-model="school"></vue-select>
+        <multiselect ref="select" v-model="school" :options="schoolOptions" :multiple="false" :close-on-select="true" :clear-on-select="false" :preserve-search="false" placeholder="Pick your school" label="name" track-by="name">
+            <template slot="Select" slot-scope="{ options, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} options selected</span></template>
+        </multiselect> 
     </div>
-    <div id="CourseSelect" v-if="school != ''">
-    <br>
-    <p>Great! Now select your classes below:</p>
-        <vue-select ref="select" multiple :options="options" v-model="selected"></vue-select><br>
+    <div id="CourseSelect" v-if="school != ''">        
+        <p>Great! Now select your classes below:</p>
+        <multiselect ref="select" v-model="selected" :options="options" :multiple="true" :close-on-select="false" :clear-on-select="false" :preserve-search="false" placeholder="Select a Course" label="name" track-by="name">
+            <template slot="Select" slot-scope="{ options, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} options selected</span></template>
+        </multiselect> 
     </div>
     <div id="buttons" v-if="selected.length != 0">
     <p>Nice! Now hit go to check out your prerequesite graph!</p>
@@ -34,6 +37,7 @@
   import * as ubc_data from '@/assets/ubc_data.json'
   import { mapActions } from 'vuex'
   import { mapGetters } from 'vuex'
+  import Multiselect from 'vue-multiselect'
  
   export default {
     name: 'Select',
@@ -41,7 +45,7 @@
         return {
             selected: [],
             show_courses: false,
-            schoolOptions: ["University of Victoria", "University of British Columbia"],
+            schoolOptions: [{name: "University of Victoria"},{name: "University of British Columbia"}],
             schoolLookup: {
                 "University of Victoria": uvic_data,
                 "University of British Columbia": ubc_data
@@ -56,7 +60,7 @@
         
         let options = []
         for (var course in this.used_data.default){
-        options.push(course)
+        options.push({name: course})
         }
         return options
         },
@@ -86,25 +90,27 @@
             selectCourses: 'selectCourses'
         } ),
         makeGraph(){
-            console.log(this.selected.length)
+            let result = this.selected.map(a => a.name)
             if(this.selected.length === 0){
                 alert("Please select at least one course!")
             } else {
-                this.selectCourses(this.selected)
+                }
+                this.selectCourses(result)
                 this.$router.push('graph')
             }
         },
-    },
     components: {
-        vueSelect
+        vueSelect, Multiselect
     },
     watch: {
         school: function() {
-            this.used_data = this.schoolLookup[this.school]
+            this.used_data = this.schoolLookup[this.school.name]
         }
     }
   }
 </script>
+
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 
 <style scoped>
 body {
