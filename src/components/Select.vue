@@ -35,7 +35,7 @@
 
 <script>
 
-  import vueSelect from 'vue-select'
+  //import vueSelect from 'vue-select'
   import * as uvic_data from '@/assets/uvic_data.json'
   import * as ubc_data from '@/assets/ubc_data.json'
   import { mapActions } from 'vuex'
@@ -97,13 +97,13 @@
             if(this.selected.length === 0){
                 alert("Please select at least one course!")
             } else {
-                }
                 this.selectCourses(result)
                 this.$router.push('graph')
             }
-        },
+        }
+    },
     components: {
-        vueSelect, Multiselect
+        Multiselect
     },
     watch: {
         school: function() {

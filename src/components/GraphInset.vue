@@ -1,7 +1,8 @@
 <template id="mytmp">
     <div>
         <div id="mynetwork" style="height:850px;"></div>
-        <strong id="fullname">Hover to see more info!</strong><br>
+        <strong id="fullname">Hover to see more info!</strong>
+        <p id="rmp"></p>
         <a href="url" id=link>See course webpage</a>
     </div>
 </template>
@@ -10,6 +11,9 @@
 
 import * as vis from "vis";
 import * as data from '@/assets/uvic_data.json'
+import * as rmp_data from '@/assets/rmp_data.json'
+
+console.log(rmp_data)
 
 export default {
     name: 'GraphInset',
@@ -158,7 +162,22 @@ export default {
                 course_name = "Name unavailable"
                 url = ""
             }
+            console.log(rmp_data.default[course_code])
+            if(rmp_data.default[course_code] != null){
+                var profs = rmp_data.default[course_code]
+                if(profs[1] != null){
+                    profs = profs[0]
+                }
+                console.log(profs)
+                var rmp_blub = "Taught by: " + profs[0]
+                if (profs[1] != null){
+                    rmp_blub += " (" + profs[1] + " on RateMyProfessor" + ")"
+                }
+            } else {
+                rmp_blub = ""
+            }
             document.getElementById("fullname").innerHTML = course_code + ": " + course_name
+            document.getElementById("rmp").innerHTML = rmp_blub
             document.getElementById("link").href = url
         });
     }
