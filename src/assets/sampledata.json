@@ -1,29 +1,38 @@
 {
-    "Class0": {
-        "Prerequisites": []
+    "ECE 100": {
+        "Prerequisites": [],
+        "Name": "Circuits I"
     },
-    "Class1": {
-        "Prerequisites": []
+    "ECE 101": {
+        "Prerequisites": [],
+        "Name": "Circuits II"
     },
-    "Class2": {
-        "Prerequisites": ["Class0"]
+    "ECE 200": {
+        "Prerequisites": ["ECE 100"],
+        "Name": "Advanced Circuits"
     },
-    "Class3": {
-        "Prerequisites": ["Class0", "Class1"]
+    "ECE 210": {
+        "Prerequisites": ["ECE 100", "ECE 101"],
+        "Name": "Electormagnetism I"
     },
-    "Class4": {
-        "Prerequisites": ["Class3"]
+    "ECE 300": {
+        "Prerequisites": ["ECE 200"],
+        "Name": "Very Advanced Circuits I"
     },
-    "Class5": {
-        "Prerequisites": ["Class4", "Class2"]
+    "ECE 301": {
+        "Prerequisites": ["ECE 300", "ECE 200"],
+        "Name": "Very Advanced Circuits II"
     },
-    "Class6": {
-        "Prerequisites": ["Class0", "Class1"]
+    "ECE 299": {
+        "Prerequisites": ["ECE 100", "ECE 101"],
+        "Name": "Design I"
     },
-    "Class7": {
-        "Prerequisites": ["Class6"]
+    "ENGR 400": {
+        "Prerequisites": ["ECE 299"],
+        "Name": "Engineering Ethics"
     },
-    "Class8": {
-        "Prerequisites": []
+    "CSC 100": {
+        "Prerequisites": [],
+        "Name": "Programming in Oook"
     }
 }

@@ -1,6 +1,7 @@
 <template id="mytmp">
     <div>
-        <div id="mynetwork" style="height:600px;"></div>
+        <div id="mynetwork" style="height:500px;"></div>
+        <strong id="details">Hover over a course to see more!</strong>
     </div>
 </template>
 
@@ -12,13 +13,19 @@ import * as data from '@/assets/sampledata.json'
 export default {
     name: 'GraphInset',
     props: {
-        courses: String
+        courses: Array
     },
-        data() {
+        data() {    
         return {
+            graph_nodes: new vis.DataSet([]),
+            graph_edges: new vis.DataSet([]),
+            hovered_course: "",
             options: {
+                interaction: {
+                    hover:true
+                },
                 manipulation: {
-                    enabled: false,
+                    enabled: true,
                     addEdge: function(edgeData, callback) {
                         callback(edgeData);
                     }
@@ -41,6 +48,11 @@ export default {
                         to: {
                             enabled: true
                         }
+                    },
+                    smooth: {
+                        type: 'cubicBezier',
+                        //forceDirection: (directionInput.value == "UD" || directionInput.value == "DU") ? 'vertical' : 'horizontal',
+                        roundness: 0.4
                     }
                 }
             },
@@ -50,17 +62,25 @@ export default {
 
     computed: {
         graph_data: function() {
-            let graph_nodes = []
-            let graph_edges = []
             for (var course in data.default){
-                graph_nodes.push({id: course, label:course})
-                for (var req in data.default[course].Prerequisites){
-                    graph_edges.push({from: data.default[course].Prerequisites[req], to: course})
+                if (this.courses.includes(course)) {        // posssible optimization here
+                    this.graph_nodes.add({
+                        id: course,
+                        label:course,
+                        level: course.match(/\d/),
+                        title: "YEET"
+                        })
+                    for (var req in data.default[course].Prerequisites){
+                        this.graph_edges.add({
+                            from: data.default[course].Prerequisites[req],
+                            to: course
+                            })
+                    }
                 }
             }
             return {
-                nodes: graph_nodes,
-                edges: graph_edges
+                nodes: this.graph_nodes,
+                edges: this.graph_edges
             }
         }
     },
@@ -68,6 +88,9 @@ export default {
     mounted() {
         this.container = document.getElementById('mynetwork');
         this.network = new vis.Network(this.container, this.graph_data, this.options);
+        this.network.on("showPopup", function (params) {
+            document.getElementById("details").innerHTML = params + ": " + data.default[params].Name
+        });
     }
 }
 </script>

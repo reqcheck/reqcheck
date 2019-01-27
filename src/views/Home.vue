@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/req.png">
+    <img alt="Vue logo" src="../assets/req.png" style="height:200px; width=100px">
     <HelloWorld msg="ReqCheck.tech"/>
   </div>
 </template>
