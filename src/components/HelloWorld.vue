@@ -32,10 +32,15 @@
 </template>
 
 <script>
+import Select from './Select.vue'
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  components: {
+    Select
   }
 }
 </script>
