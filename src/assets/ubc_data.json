@@ -1,38 +1,38 @@
 {
     "UBC_ECE 100": {
-        "Prereqs": [[]],
-        "Name": "Circuits I"
+        "prereqs": [[]],
+        "name": "Circuits I"
     },
     "UBC_ECE 101": {
-        "Prereqs": [[]],
-        "Name": "Circuits II"
+        "prereqs": [[]],
+        "name": "Circuits II"
     },
     "UBC_ECE 200": {
-        "Prereqs": [["UBC_ECE 100"]],
-        "Name": "Advanced Circuits"
+        "prereqs": [["UBC_ECE 100"]],
+        "name": "Advanced Circuits"
     },
     "UBC_ECE 210": {
-        "Prereqs": [["UBC_ECE 100", "UBC_ECE 101"]],
-        "Name": "Electormagnetism I"
+        "prereqs": [["UBC_ECE 100", "UBC_ECE 101"]],
+        "name": "Electormagnetism I"
     },
     "UBC_ECE 300": {
-        "Prereqs": [["UBC_ECE 200"]],
-        "Name": "Very Advanced Circuits I"
+        "prereqs": [["UBC_ECE 200"]],
+        "name": "Very Advanced Circuits I"
     },
     "UBC_ECE 301": {
-        "Prereqs": [["UBC_ECE 300", "UBC_ECE 200"]],
-        "Name": "Very Advanced Circuits II"
+        "prereqs": [["UBC_ECE 300", "UBC_ECE 200"]],
+        "name": "Very Advanced Circuits II"
     },
     "UBC_ECE 299": {
-        "Prereqs": [["UBC_ECE 100", "UBC_ECE 101"]],
-        "Name": "Design I"
+        "prereqs": [["UBC_ECE 100", "UBC_ECE 101"]],
+        "name": "Design I"
     },
     "UBC_ENGR 400": {
-        "Prereqs": [["UBC_ECE 299"]],
-        "Name": "Engineering Ethics"
+        "prereqs": [["UBC_ECE 299"]],
+        "name": "Engineering Ethics"
     },
     "UBC_CSC 100": {
-        "Prereqs": [[]],
-        "Name": "Programming in Oook"
+        "prereqs": [[]],
+        "name": "Programming in Oook"
     }
 }
