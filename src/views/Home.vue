@@ -2,7 +2,8 @@
   <div class="home">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> | 
+      <router-link to="/upload">Upload</router-link>
     </div>
     <img alt="ReqCheck logo" src="../assets/req2.png" style="width:412px">
     <Select/>

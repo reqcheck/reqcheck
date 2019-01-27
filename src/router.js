@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Graph from './views/Graph.vue'
+import Upload from './views/Upload.vue'
 
 Vue.use(Router)
 
@@ -18,6 +19,11 @@ export default new Router({
       path: '/graph',
       name: 'graph',
       component: Graph
+    },
+    {
+      path: '/upload',
+      name: 'upload',
+      component: Upload
     },
     {
       path: '/about',
