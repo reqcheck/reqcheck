@@ -1,8 +1,8 @@
 <template id="mytmp">
     <div>
-        <div id="mynetwork" style="height:850px;"></div>
+        <div id="mynetwork" style="height:700px;"></div>
         <strong id="fullname">Hover to see more info!</strong>
-        <p id="rmp"></p>
+        <p id="rmp">There's even ratemypro info!</p>
         <a href="url" id=link>See course webpage</a>
     </div>
 </template>
@@ -174,7 +174,7 @@ export default {
                     rmp_blub += " (" + profs[1] + " on RateMyProfessor" + ")"
                 }
             } else {
-                rmp_blub = ""
+                rmp_blub = "No teacher information found."
             }
             document.getElementById("fullname").innerHTML = course_code + ": " + course_name
             document.getElementById("rmp").innerHTML = rmp_blub

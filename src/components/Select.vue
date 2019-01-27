@@ -7,16 +7,18 @@
         <multiselect ref="select" v-model="school" :options="schoolOptions" :multiple="false" :close-on-select="true" :clear-on-select="false" :preserve-search="false" placeholder="Pick your school" label="name" openDirection="top" track-by="name">
             <template slot="Select" slot-scope="{ options, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} options selected</span></template>
         </multiselect>
-        <p>First, select your school:</p> 
+        <p>First, select your school.</p> 
     </div>
-    <div id="CourseSelect" v-if="school != ''">  
+    <br>
+    <div id="CourseSelect" v-if="school != ''">   
         <multiselect ref="select" v-model="selected" :options="options" :multiple="true" :close-on-select="false" :clear-on-select="false" :preserve-search="false" placeholder="Select a Course" label="name" track-by="name" openDirection="top" :max-height="150">
             <template slot="Select" slot-scope="{ options, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} options selected</span></template>
         </multiselect>
-        <p>Great! Now select your classes below:</p> 
+        <p>Great! Now select your classes. </p>
     </div>
     <div id="buttons" v-if="selected.length != 0">
-    <p>Nice! Now hit go to check out your prerequesite graph!</p>
+        <br><br><br>
+    <p>Nice! Now hit go to check out your prerequisite graph!</p>
     <sui-button class="ui fade animated button" @click="deselect">
       <sui-button-content visible>Reset</sui-button-content>
       <sui-button-content hidden>
