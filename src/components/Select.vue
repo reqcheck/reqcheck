@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <h5>Select your classes below:</h5>
+  <div v-if="true" id="app">
+    <p>Select your classes below:</p>
         <vue-select ref="select" multiple :options="options" v-model="selected"></vue-select>
     <button class="btn btn-default" @click="deselect">Reset</button>
     <button class="btn btn-default" @click="selectAll">Select All</button>
@@ -20,6 +20,7 @@
     data () {
         return {
             selected: [],
+            show_courses: false
         }
     },
     computed: {
@@ -31,7 +32,8 @@
         return options
         },
         ...mapGetters([
-            'selectedCourses'
+            'selectedCourses',
+            'selectedSchool'
         ])
     }, 
     methods: {
@@ -63,6 +65,11 @@
     components: {
         vueSelect
     },
+    watch: {
+        selectedSchool () {
+            console.log("School is " + this.selectedSchool)
+        }
+    }
   }
 </script>
 
