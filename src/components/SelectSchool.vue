@@ -9,24 +9,15 @@
 
   import vueSelect from 'vue-select'
   import { mapActions } from 'vuex'
-  import { mapGetters } from 'vuex'
  
   export default {
     name: 'SelectSchool',
     data () {
         return {
+            options: ['University of British Columbia', 'University of Victoria'],
             school: "",
         }
     },
-    computed: {
-        options: function() {
-        let options = ['University of British Columbia', 'University of Victoria']
-        return options
-        },
-        ...mapGetters([
-            'selectedSchool'
-        ])
-    }, 
     methods: {
         ...mapActions( {
             selectSchool: 'selectSchool'

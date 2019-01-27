@@ -1,5 +1,5 @@
 <template>
-  <div v-if="true" id="app">
+  <div id="app">
     <p>Select your classes below:</p>
         <vue-select ref="select" multiple :options="options" v-model="selected"></vue-select>
     <button class="btn btn-default" @click="deselect">Reset</button>
@@ -11,7 +11,8 @@
 <script>
 
   import vueSelect from 'vue-select'
-  import * as data from '@/assets/sampledata.json'
+  import * as data from '@/assets/uvic_data.json'
+  //import * as ubc_data from '@/assets/ubc_data.json'
   import { mapActions } from 'vuex'
   import { mapGetters } from 'vuex'
  
@@ -25,6 +26,7 @@
     },
     computed: {
         options: function() {
+        
         let options = []
         for (var course in data.default){
         options.push(course)
@@ -34,7 +36,10 @@
         ...mapGetters([
             'selectedCourses',
             'selectedSchool'
-        ])
+        ]),
+        selectedSchool: function() {
+            return this.selectedSchool()
+        }
     }, 
     methods: {
         selectAll() {
@@ -65,11 +70,6 @@
     components: {
         vueSelect
     },
-    watch: {
-        selectedSchool () {
-            console.log("School is " + this.selectedSchool)
-        }
-    }
   }
 </script>
 
