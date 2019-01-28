@@ -13,8 +13,6 @@ import * as vis from "vis";
 import * as data from '@/assets/uvic_data.json'
 import * as rmp_data from '@/assets/rmp_data.json'
 
-console.log(rmp_data)
-
 export default {
     name: 'GraphInset',
     props: {
@@ -162,13 +160,11 @@ export default {
                 course_name = "Name unavailable"
                 url = ""
             }
-            console.log(rmp_data.default[course_code])
             if(rmp_data.default[course_code] != null){
                 var profs = rmp_data.default[course_code]
                 if(profs[1] != null){
                     profs = profs[0]
                 }
-                console.log(profs)
                 var rmp_blub = "Taught by: " + profs[0]
                 if (profs[1] != null){
                     rmp_blub += " (" + profs[1] + " on RateMyProfessor" + ")"

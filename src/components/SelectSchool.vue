@@ -25,7 +25,6 @@
     },
     watch: {
         school () {
-            console.log("schoool updated")
             this.selectSchool(this.school)
         }
     },

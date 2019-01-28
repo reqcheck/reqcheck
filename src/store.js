@@ -4,7 +4,7 @@ Vue.use(Vuex)
 
 const state = {
     selectedCourses: [],
-    school: ""
+    school: String
 }
 
 const actions = {
@@ -21,7 +21,7 @@ const mutations = {
         state.selectedCourses = courses
     },
     selectSchool(state, school){
-        state.selectedSchool = school
+        state.school = school
     }
 }
 
@@ -29,8 +29,8 @@ const getters = {
     selectedCourses(state){
       return state.selectedCourses
     },
-    selectedSchool (state) {
-        return state.selectedSchool
+    selectedSchool(state) {
+        return state.school
     }
 
 }
