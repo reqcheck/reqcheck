@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <img alt="ReqCheck logo" src="../assets/req2.png" style="width:412px">
+    <img alt="ReqCheck logo" src="../assets/req2.png" style="width:80%">
     <Select/>
   </div>
 </template>
