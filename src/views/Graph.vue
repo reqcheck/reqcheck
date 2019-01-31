@@ -20,7 +20,8 @@ import GraphInset from '@/components/GraphInset.vue'
 export default {
   data () {
       return {
-          courses: this.$router.params
+          courses: [],
+          school: ""
       }
   },
   name: 'graph',
@@ -29,8 +30,9 @@ export default {
   },
   computed: {
       ...mapGetters([
-          'selectedCourses'
-      ])
+          'selectedCourses',
+      ]),
+      
   }
 }
 </script>

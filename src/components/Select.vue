@@ -11,7 +11,7 @@
     </div>
     <br>
     <div id="CourseSelect" v-if="school != ''">   
-        <multiselect ref="select" v-model="selected" :options="options" :multiple="true" :close-on-select="false" :clear-on-select="false" :preserve-search="false" placeholder="Select a Course" label="name" track-by="name" openDirection="top" :max-height="150">
+        <multiselect ref="select" v-model="selected" :options="options" :multiple="true" :close-on-select="false" :clear-on-select="false" :preserve-search="false" placeholder="Select a Course" label="label" track-by="name" openDirection="top" :max-height="150">
             <template slot="Select" slot-scope="{ options, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} options selected</span></template>
         </multiselect>
         <p>Great! Now select your classes. </p>
@@ -65,7 +65,8 @@
         
         let options = []
         for (var course in this.used_data.default){
-        options.push({name: course})
+            var long_name = course + ": " + this.used_data.default[course].name
+        options.push({name: course, label: long_name})
         }
         return options
         },
@@ -92,7 +93,8 @@
             this.selected = []
         },
         ...mapActions( {
-            selectCourses: 'selectCourses'
+            selectCourses: 'selectCourses',
+            selectSchool: 'selectSchool'
         } ),
         makeGraph(){
             let result = this.selected.map(a => a.name)
@@ -100,6 +102,7 @@
                 alert("Please select at least one course!")
             } else {
                 this.selectCourses(result)
+                this.selectSchool(this.school)
                 this.$router.push('graph')
             }
         }
