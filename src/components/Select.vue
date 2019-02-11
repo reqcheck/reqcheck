@@ -10,14 +10,17 @@
         <p>First, select your school.</p> 
     </div>
     <br>
-    <div id="CourseSelect" v-if="school != ''">   
+    <transition name="fade">
+    <div id="CourseSelect" v-if="school">   
         <multiselect ref="select" v-model="selected" :options="options" :multiple="true" :close-on-select="false" :clear-on-select="false" :preserve-search="false" placeholder="Select a Course" label="label" track-by="name" openDirection="top" :max-height="150">
             <template slot="Select" slot-scope="{ options, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} options selected</span></template>
         </multiselect>
         <p>Great! Now select your classes. </p>
     </div>
+    </transition>
+    <transition name="fade">
     <div id="buttons" v-if="selected.length != 0">
-        <br><br><br>
+        <br>
     <p>Nice! Now hit go to check out your prerequisite graph!</p>
     <sui-button class="ui fade animated button" @click="deselect">
       <sui-button-content visible>Reset</sui-button-content>
@@ -32,6 +35,7 @@
       </sui-button-content>
     </sui-button>
     </div>
+    </transition>
   </div>
 </template>
 
@@ -129,5 +133,11 @@ body {
   margin: 1em auto;
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
